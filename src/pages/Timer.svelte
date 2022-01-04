@@ -52,7 +52,7 @@
       setBarLen()
     }
     
-    setInterval(increment, 20)
+    setInterval(increment, 1000)
   
 </script>
   
