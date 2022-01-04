@@ -1,0 +1,28 @@
+<script>
+  import "chota";
+
+  import Timer from "./pages/Timer.svelte";
+  import Draw from "./pages/Draw.svelte";
+  import Nav from "./components/Nav.svelte";
+  import Error from "./pages/Error.svelte";
+
+  let page = "Timer"
+
+</script>
+
+<Nav bind:page></Nav>
+{#if page == "Timer"}
+  <Timer></Timer>
+{:else if page == "Draw"}
+  <Draw></Draw>
+{:else if page == "Motions"}
+  <Error title="MOTIONS"></Error>
+{:else if page == "Stats"}
+  <Error title="STATS"></Error>
+{:else if page == "Settings"}
+  <Error title="SETTINGS"></Error>
+{/if}
+  
+<style>
+
+</style>

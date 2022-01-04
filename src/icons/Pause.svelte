@@ -1,0 +1,31 @@
+<script>
+    export let color = "var(--color-primary)"
+    export let style = "position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%) scale(3)"
+</script>
+
+<div class="icon" style={style}>
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24"
+        style="transform: scaleX(1.5);"
+    >
+        <path 
+            d="M11 22h-4v-20h4v20zm6-20h-4v20h4v-20z"
+            fill={color}
+        />
+    </svg>
+</div>
+
+<style>
+    .icon {
+        display: flex;
+        padding: 1rem;
+        border-radius: 50%;
+        transition: 0.5s;
+    }
+    .icon:hover {
+        opacity: 0.7;
+    }
+</style>

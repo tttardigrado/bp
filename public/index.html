@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<title>Svelte app</title>
+
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+	<style>
+		:root {
+  			--bg-color: #262c3a;
+  			--bg-secondary-color: #3b4252;
+			--nav-color: #1f2937;
+			--color-primary: #5e81ac;
+			--color-lightGrey: #3b4252;
+			--color-grey: #5e81ac;
+			--color-darkGrey: #3f4144;
+			--color-error: #bf616a;
+			--color-success: #a3be8c;
+			--color-1-min: #88c0d0;
+			--color-6-min: #a3be8c;
+			--color-7-min: #b48ead;
+			--color-7-15-min: #bf616a;
+			--grid-maxWidth: 120rem;
+			--grid-gutter: 2rem;
+			--font-size: 1.6rem;
+			--font-color: #eceff4;
+			--font-family-sans: sans-serif;
+			--font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+		}
+
+	
+	  </style>
+</head>
+
+<body>
+	<script>
+		if (window.matchMedia &&
+			window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.body.classList.add('dark');
+		}
+	</script>
+</body>
+</html>
