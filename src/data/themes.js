@@ -1,12 +1,3 @@
-const themes = {
-    "Nord": nord,
-    "GruvBox": gruv, 
-    "TokyoNight": tokyo, 
-    "Umbra": umbra, 
-    "OneDark": onedark,
-}
-
-
 const nord = {
     "bg-color": "#262c3a",
   	"bg-secondary-color": "#3b4252",
@@ -27,7 +18,7 @@ const nord = {
 const gruv = {
     "bg-color": "#282828",
   	"bg-secondary-color": "#32302f",
-	"nav-color": "#1d202",
+	"nav-color": "#1d2020",
 	"color-primary": "#af3a03",
 	"color-lightGrey": "#3c3836",
 	"color-grey": "#af3a03",
@@ -92,4 +83,11 @@ const onedark = {
 	"font-color": "#abb2bf"
 }
 
-export default themes
+export const themes = {
+    "Nord": nord,
+    "GruvBox": gruv, 
+    "TokyoNight": tokyo, 
+    "Umbra": umbra, 
+    "OneDark": onedark,
+	"": nord
+}

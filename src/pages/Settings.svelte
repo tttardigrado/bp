@@ -1,62 +1,73 @@
 <script>
     import "chota";
-  
-    import Draw from "./pages/Draw.svelte";
-    import Timer from "./pages/Timer.svelte";
-    import Nav from "./components/Nav.svelte"
-    import Select from "./components/Select.svelte";
+
+    import Select from "../components/Select.svelte";
+    import { theme, audio } from '../data/store';
+    import { getAudio } from "../data/audio";
   
     let schemes = [
-      "Nord", "GruvBox", "TokyoNight", "SpaceGray", "Bear", "OneDark", "Dracula", "PaleNight"
+      "Nord", "GruvBox", "TokyoNight", "Umbra", "OneDark"
     ]
-    let schemesValue = "Nord"
+    let schemesValue = localStorage.getItem("theme")
   
     function processSchemes(){
-      
+      theme.set(schemesValue)
     }
   
     let sounds = [
-      "Bell", "Gong", "Coin"
+      "Bell", "Box", "Cash", "Coin", "Error"
     ]
-    let soundsValue = "Bell"
-  </script>
-  
-  <Nav></Nav>
-  <nav>Settings</nav>
-  <main>
-  
-    <Select id="scheme" bind:value={schemesValue} options={schemes} title="Color Schemes"/>
-  
-    <Select id="sound" bind:value={soundsValue} options={sounds} title="Sound effects"/>
-  
-    <div class="credits">
-      Made by: <a href="http://" target="_blank"> Gonçalo Teixeira</a>
-    </div>
-    
-  
-  </main>
-    
-  <style>
-    main {
-      padding: 2rem;
+    let soundsValue = localStorage.getItem("audio")
+
+    function processSound(){
+      audio.set(soundsValue)
+      getAudio().play()
     }
+
+</script>
   
-    nav {
-      background-color: var(--nav-color);
-      width: 100%;
-      height: 6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+<nav>Settings</nav>
+<main>
   
-      font-size: 24px;
-    }
+  <Select id="scheme" bind:value={schemesValue} options={schemes} title="Color Schemes" fun={processSchemes}/>
   
+  <Select id="sound" bind:value={soundsValue} options={sounds} title="Sound effects" fun={processSound}/>
+
+</main>
+
+<div class="credits">
+  Made by: <a href="https://force4760.netlify.app/" target="_blank"> Gonçalo Teixeira</a>
+</div>
     
+<style>
+  main {
+    padding: 2rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: auto;
+  }
   
-    .credits {
-      position: absolute;
-      bottom: 1rem;
-    }
-  </style>
+  nav {
+    background-color: var(--nav-color);
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  .credits {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
+  .credits a {
+    color: var(--font-color);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
   

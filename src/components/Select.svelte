@@ -3,10 +3,11 @@
     export let id = ""
     export let options = []
     export let value = ""
+    export let fun = () => {}
 </script>
 
 <label for={id}>{title}</label>
-<select bind:value name="{id}" id="{id}" >
+<select bind:value name="{id}" id="{id}" on:change={fun} >
     {#each options as o}
         <option value={o}>{o}</option>
     {/each}

@@ -1,4 +1,4 @@
-const cacheName = "mtgtools"
+const cacheName = "breaker"
 const staticAssets = [
   "./",
   "./index.html",
@@ -8,7 +8,12 @@ const staticAssets = [
   "./build/bundle.js",
   "./build/bundle.css",
   "./build/bundle.js.map",
-  "./icons"
+  "./icons",
+  "./audio/bell.mp3",
+  "./audio/box.mp3",
+  "./audio/cash.mp3",
+  "./audio/coin.mp3",
+  "./audio/error.mp3"
 ];
 
 

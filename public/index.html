@@ -49,6 +49,23 @@
 			});
 		  });
   		}
+
+		let r = document.querySelector(':root');
+
+		r.style.setProperty("--bg-color", localStorage.getItem("bg-color"));
+		r.style.setProperty("--bg-secondary-color", localStorage.getItem("bg-secondary-color"));
+		r.style.setProperty("--nav-color", localStorage.getItem("nav-color"));
+  		r.style.setProperty("--color-primary", localStorage.getItem("color-primary"));
+  		r.style.setProperty("--color-lightGrey", localStorage.getItem("color-lightGrey"));
+ 		r.style.setProperty("--color-grey", localStorage.getItem("color-grey"));
+  		r.style.setProperty("--color-darkGrey", localStorage.getItem("color-darkGrey"));
+		r.style.setProperty("--color-error", localStorage.getItem("color-error"));
+		r.style.setProperty("--color-success", localStorage.getItem("color-success"));
+		r.style.setProperty("--color-1-min", localStorage.getItem("color-1-min"));
+		r.style.setProperty("--color-6-min", localStorage.getItem("color-6-min"));
+		r.style.setProperty("--color-7-min", localStorage.getItem("color-7-min"));
+		r.style.setProperty("--color-7-15-min", localStorage.getItem("color-7-15-min"));
+		r.style.setProperty("--fontColors", localStorage.getItem("font-color"));
 	</script>
 </body>
 </html>

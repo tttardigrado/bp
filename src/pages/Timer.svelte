@@ -4,16 +4,21 @@
     import Btn from "../components/Btn.svelte"
   
     import { mdiAutorenew } from "@mdi/js";
+
+    import { getAudio } from "../data/audio";
   
     const min1InSecs = 60
     const min6InSecs = 60 * 6
     const min7InSecs = 60 * 7
+    const min715InSecs = min7InSecs + 15
+
+    let audioPlayer = getAudio()
   
     let seconds = 0
     let barColor = "var(--color-1-min)"
     let barLen = 100
     let playing = false
-    let extraClass
+    let extraClass = ""
   
     function switchOnOff(){
       playing = !playing
@@ -38,13 +43,23 @@
   
       seconds++
   
-      if (seconds < min1InSecs){
+      if (seconds <= min1InSecs){
+        if (seconds === min1InSecs) {
+          audioPlayer.play()
+        }
         barColor = "var(--color-1-min)"
-      } else if (seconds < min6InSecs) {
+      } else if (seconds <= min6InSecs) {
+        if (seconds === min6InSecs) {
+          audioPlayer.play()
+        }
         barColor = "var(--color-6-min)"
-      } else if (seconds < min7InSecs) {
+      } else if (seconds <= min7InSecs) {
+        if (seconds === min7InSecs) {
+          audioPlayer.play()
+        }
         barColor = "var(--color-7-min)"
-      } else {
+      } else if (seconds === min715InSecs){
+        audioPlayer.play()
         barColor = "var(--color-7-15-min)"
         extraClass = "flicker"
       }
@@ -53,9 +68,11 @@
     }
     
     setInterval(increment, 1000)
+
+    
   
 </script>
-  
+
 <nav>TIMER</nav>
 <div class="time-bar {extraClass}" style="background-color: {barColor}; width: {barLen}%"></div>
 <main>

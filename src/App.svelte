@@ -3,6 +3,7 @@
 
   import Timer from "./pages/Timer.svelte";
   import Draw from "./pages/Draw.svelte";
+  import Settings from "./pages/Settings.svelte";
   import Nav from "./components/Nav.svelte";
   import Error from "./pages/Error.svelte";
 
@@ -10,7 +11,7 @@
 
 </script>
 
-<Nav bind:page></Nav>
+<Nav bind:page ></Nav>
 {#if page == "Timer"}
   <Timer></Timer>
 {:else if page == "Draw"}
@@ -20,7 +21,7 @@
 {:else if page == "Stats"}
   <Error title="STATS"></Error>
 {:else if page == "Settings"}
-  <Error title="SETTINGS"></Error>
+  <Settings></Settings>
 {/if}
   
 <style>
