@@ -89,8 +89,9 @@
 <style>
   main {
     padding: 2rem;
+    max-width: 700px;
+    margin: auto;
   }
-
   nav {
     background-color: var(--nav-color);
     width: 100%;
