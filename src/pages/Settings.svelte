@@ -15,7 +15,7 @@
     }
   
     let sounds = [
-      "Bell", "Box", "Cash", "Coin", "Error"
+      "Bell", "Box", "Cash", "Coin", "Error", "None"
     ]
     let soundsValue = localStorage.getItem("audio")
 

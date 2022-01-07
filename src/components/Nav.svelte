@@ -8,10 +8,11 @@
   
     // List of navigation items
     const navItems = [
+      "Timer",
       "Draw",
+      "Debates",
       "Motions",
       "Stats",
-      "Timer",
       "Settings"
     ];
   

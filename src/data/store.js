@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import { themes } from "./themes";
 
+// ---------- Theme ---------- 
 const storedTheme = localStorage.getItem("theme");
 
 export const theme = writable(storedTheme);
@@ -48,10 +49,33 @@ theme.subscribe(value => {
     
 });
 
+// ---------- Audio ---------- 
 const storedAudio = localStorage.getItem("audio");
 
 export const audio = writable(storedAudio);
 
 audio.subscribe(value => {
     localStorage.setItem("audio", value ? value : "/audio/bell.mp3");
+});
+
+// ---------- Debates ---------- 
+const storedDebates = localStorage.getItem("debates");
+const parsed = JSON.parse(storedDebates)
+export const debates = writable(parsed === null ? []: parsed);
+
+debates.subscribe(value => {
+	if (value) {
+		localStorage.setItem("debates", JSON.stringify(value));
+	} else {
+		let data = [
+			{
+				house: "Opening Gov",
+				call: [1,2,3,4],
+				motion: "THB",
+				notes: "",
+			}
+		]
+		localStorage.setItem("debates", JSON.stringify(data))
+	}
+    
 });

@@ -1,5 +1,5 @@
 <script>
-    export let title = "Title"
+    export let title = ""
     export let id = ""
     export let options = []
     export let value = ""

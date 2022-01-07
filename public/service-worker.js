@@ -13,7 +13,8 @@ const staticAssets = [
   "./audio/box.mp3",
   "./audio/cash.mp3",
   "./audio/coin.mp3",
-  "./audio/error.mp3"
+  "./audio/error.mp3",
+  "./audio/none.mp3"
 ];
 
 
