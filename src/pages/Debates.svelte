@@ -22,10 +22,10 @@
     }
 
     function deleteDebate(index) {
-      isOnDebatePage = false
       data.splice(index, 1)
       data = data
       debates.set(data)
+      isOnDebatePage = false
     }
 
     function addDebate() {

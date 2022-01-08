@@ -17,7 +17,7 @@
 {/if}
 <style>
     .btn {
-      position: absolute;
+      position: fixed;
       bottom: 1rem;
       display: flex;
       justify-content: flex-end;
