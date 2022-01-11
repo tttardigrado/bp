@@ -2,3 +2,8 @@
 /public/build/
 
 .DS_Store
+
+# Local Netlify folder
+.netlify
+
+netlify
