@@ -5,26 +5,27 @@
   import Draw from "./pages/Draw.svelte";
   import Debates from "./pages/Debates.svelte";
   import Settings from "./pages/Settings.svelte";
+  import Motions from "./pages/Motions.svelte";
   import Nav from "./components/Nav.svelte";
   import Error from "./pages/Error.svelte";
 
-  let page = "Timer"
+  let page = "Temporizador"
 
 </script>
 
 <Nav bind:page ></Nav>
-{#if page == "Timer"}
-  <Timer></Timer>
+{#if page == "Temporizador"}
+  <Timer/>
 {:else if page == "Draw"}
-  <Draw></Draw>
+  <Draw/>
 {:else if page == "Debates"}
-  <Debates></Debates>
-{:else if page == "Motions"}
-  <Error title="MOTIONS"></Error>
-{:else if page == "Stats"}
-  <Error title="STATS"></Error>
-{:else if page == "Settings"}
-  <Settings></Settings>
+  <Debates/>
+{:else if page == "Moções"}
+  <Motions/>
+{:else if page == "Estatísticas"}
+  <Error title="ESTATÍSTICAS"/>
+{:else if page == "Definições"}
+  <Settings/>
 {/if}
   
 <style>

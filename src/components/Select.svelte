@@ -1,8 +1,18 @@
 <script>
+    // Exported values
+    
+    // Select Title
     export let title = ""
+
     export let id = ""
+    
+    // Select Options
     export let options = []
+    
+    // Current Select Value
     export let value = ""
+
+    // Function to be executed OnChange
     export let fun = () => {}
 </script>
 

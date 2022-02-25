@@ -8,7 +8,7 @@ export const theme = writable(storedTheme);
 
 theme.subscribe(value => {
     let t = {}
-    if (!value){
+    if (!value || !(value in themes)){
         t = themes["Nord"]
     } else {
         t = themes[value]
@@ -58,6 +58,15 @@ audio.subscribe(value => {
     localStorage.setItem("audio", value ? value : "/audio/bell.mp3");
 });
 
+// ---------- Template ---------- 
+const storedTemplate = localStorage.getItem("template");
+
+export const template = writable(storedTemplate);
+
+template.subscribe(value => {
+    localStorage.setItem("template", value ? value : "");
+});
+
 // ---------- Debates ---------- 
 const storedDebates = localStorage.getItem("debates");
 const parsed = JSON.parse(storedDebates)
@@ -79,3 +88,4 @@ debates.subscribe(value => {
 	}
     
 });
+

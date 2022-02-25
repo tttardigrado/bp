@@ -5,8 +5,8 @@
 
 <nav>{title}</nav>
 <main>
-  <p>Sorry, the CA is currently fixing this page</p>
-  <p><strong>THB</strong> it will be working soon.</p>
+  <p>Desculpa, a CA team está a testar esta página!</p>
+  <p><strong>ECA</strong> que ela estará a funcionar brevemente!</p>
 </main>
   
 <style>

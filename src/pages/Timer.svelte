@@ -22,6 +22,9 @@
   
     function switchOnOff(){
       playing = !playing
+      if (seconds == 0) {
+        audioPlayer.play()
+      }
     }
   
     function setBarLen(){
@@ -73,7 +76,7 @@
   
 </script>
 
-<nav>TIMER</nav>
+<nav>TEMPORIZADOR</nav>
 <div class="time-bar {extraClass}" style="background-color: {barColor}; width: {barLen}%"></div>
 <main>
     <div class="clock">

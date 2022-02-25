@@ -15,13 +15,13 @@
 
 <Modal bind:open={modal_open} style="background: none">
     <Card style="box-shadow: none;">
-      <h4 slot="header">Delete this debate</h4>
+      <h4 slot="header">EC apagaria este debate</h4>
   
-      <p>Are you sure?</p>
+      <p>Tens a certeza?</p>
       
       <div slot="footer" class="is-right">
-          <Button clear on:click={modal_hide}>Cancel</Button>
-          <Button error on:click={del}>Delete</Button>
+          <Button clear on:click={modal_hide}>Cancelar</Button>
+          <Button error on:click={del}>Apagar</Button>
       </div>
     </Card>
 </Modal>

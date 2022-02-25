@@ -1,8 +1,10 @@
 <script>
-    import { Button, Container} from "svelte-chota";
+    import { Button, Field } from "svelte-chota";
     import Select from "../components/Select.svelte";
-    import { theme, audio } from '../data/store';
+    import Input from "../components/Input.svelte";
+    import { theme, audio, template } from '../data/store';
     import { getAudio } from "../data/audio";
+    import { mdiCheck } from "@mdi/js";
 
     const motionFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSdK25wEHpPXT5xOMQgKvpThD6RIchiV6jUZu68Df8WH_jGULQ/viewform"
   
@@ -25,27 +27,52 @@
       getAudio().play()
     }
 
+    let templateValue = localStorage.getItem("template")
+  
+    function processTemplate(){
+      template.set(templateValue)
+    }
 </script>
   
-<nav>Settings</nav>
+<nav>DEFINIÇÕES</nav>
 <main>
   
-  <Select id="scheme" bind:value={schemesValue} options={schemes} title="Color Schemes" fun={processSchemes}/>
+  <Select id="scheme" bind:value={schemesValue} options={schemes} title="Tema" fun={processSchemes}/>
   
-  <Select id="sound" bind:value={soundsValue} options={sounds} title="Sound effects" fun={processSound}/>
+  <Select id="sound" bind:value={soundsValue} options={sounds} title="Efeitos Sonoros" fun={processSound}/>
 
-  <br><hr><br>
+  <Field label="Notas">
+    <Input modifier="textarea" bind:value={templateValue} placeholder=""></Input>
+    <Button primary 
+      on:click={processTemplate}
+      icon={mdiCheck}
+    />
+  </Field>
+ <hr><br>
   
-  <Container>
-    <Button primary on:click={() => window.open(motionFormLink, "_blank")}>
-      Add motions
+ <div class="btndiv">
+    <Button outline primary>
+      Salvar Dados
     </Button>
-  </Container>
-
+    <Button outline primary>
+      Carregar Dados
+    </Button>
+ </div>
+ <div class="btndiv">
+    <Button 
+      outline primary
+      style="width:100%" 
+      on:click={() => window.open(motionFormLink, "_blank")}>
+        Propor Moção
+    </Button>
+  </div>
+  
+  
+  <br><br>
 </main>
 
 <div class="credits">
-  Made by: <a href="https://force4760.netlify.app/" target="_blank"> Gonçalo Teixeira</a>
+  Criado por: <a href="https://force4760.netlify.app/" target="_blank"> Gonçalo Teixeira</a>
 </div>
     
 <style>
@@ -79,25 +106,12 @@
     text-decoration: none;
   }
 
-  .bttn {
-    border-radius: 6px;
-    border: 1px solid var(--color-darkGrey);
-    background-color: var(--bg-secondary-color);
-    transition: border 0.3s;
-    padding: 1rem;
-    margin: auto;
+  .btndiv {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--font-color)
-  }
-
-  .bttn:hover {
-    background-color: var(--bg-secondary-color);
-    border: 1px solid var(--color-grey);
-    color: var(--font-color);
-    text-decoration: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2.2rem;
   }
 </style>
   

@@ -9,10 +9,10 @@
     export let deleteDebate = () => {}
 
     const houseOptions = [
-        "Opening Gov",
-        "Opening Opp",
-        "Closing Gov",
-        "Closing Opp"
+        "1º Governo",
+        "1ª Oposição",
+        "2º Governo",
+        "2ª Oposição"
     ]
 
     export let data = {
@@ -32,49 +32,72 @@
 </script>
 
 
-<nav>DEBATE</nav>
+<nav>DEBATES</nav>
 <main>
-    <Field label="Motion">
-        <Input bind:value={data.motion} placeholder="Motion"></Input>
+    <Field label="Moção">
+        <Input 
+          bind:value={data.motion} 
+          placeholder="Motion"
+        />
     </Field>
-    <Select title="House" bind:value={data.house} options={houseOptions}></Select>
+
+    <Select 
+      title="Casa" 
+      bind:value={data.house} 
+      options={houseOptions}
+    />
 
     <br><hr><br>
 
-    <Field label="Notes">
-        <Input modifier="textarea" bind:value={data.notes} placeholder=""></Input>
+    <Field label="Notas">
+        <Input 
+          modifier="textarea" 
+          bind:value={data.notes} 
+          placeholder=""
+        />
     </Field>
 
     <br><hr><br>
 
     <Field label="Call">
       <div class="call">
+
         <div class="call2">
-          <Button primary on:click={() => {changeCall(0)}}>{data.call[0]}</Button>
-          <Button primary on:click={() => {changeCall(1)}}>{data.call[1]}</Button>
+          <Button primary on:click={() => {changeCall(0)}}>
+            {data.call[0]}
+          </Button>
+          <Button primary on:click={() => {changeCall(1)}}>
+            {data.call[1]}
+          </Button>
         </div>
+
         <div class="call2">
-          <Button primary on:click={() => {changeCall(2)}}>{data.call[2]}</Button>
-          <Button primary on:click={() => {changeCall(3)}}>{data.call[3]}</Button>
+          <Button primary on:click={() => {changeCall(2)}}>
+            {data.call[2]}
+          </Button>
+          <Button primary on:click={() => {changeCall(3)}}>
+            {data.call[3]}
+          </Button>
         </div>
-        
         
       </div>
-        
     </Field>
 
     <br><hr><br>
 
     <div class="btns">
-        <Button error icon={mdiTrashCan} on:click={modal_show}></Button>
-        <Button success icon={mdiCheck} on:click={onExit}></Button>
+        <Button error 
+          icon={mdiTrashCan} 
+          on:click={modal_show}
+        />
+        <Button success 
+          icon={mdiCheck} 
+          on:click={onExit}
+        />
     </div>
 </main>
 
-<DeleteModal bind:modal_open func={deleteDebate}></DeleteModal>
-
-
-
+<DeleteModal bind:modal_open func={deleteDebate}/>
   
 <style> 
   main {
@@ -82,6 +105,7 @@
     max-width: 700px;
     margin: auto;
   }
+
   nav {
     background-color: var(--nav-color);
     width: 100%;
@@ -119,5 +143,4 @@
     grid-gap: 1rem;
     padding-bottom: 1rem;
   }
-  
 </style>

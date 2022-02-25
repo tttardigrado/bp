@@ -1,23 +1,31 @@
 <script>
-    import { mdiPlus } from "@mdi/js";
+    import { mdiPlus, mdiFullscreen, mdiFullscreenExit } from "@mdi/js";
     import { debates } from "../data/store";
     import Btn from "../components/Btn.svelte"
     import DebateCard from "../components/DebateCard.svelte"
+    import Input from "../components/Input.svelte"
     import SingleDebate from "./SingleDebate.svelte"
   
     let isOnDebatePage = false
+    let isOnFullWriteScreen = false
     let debateIndex = 0  
 
     //debates.set()
     let data = JSON.parse(localStorage.getItem("debates")) 
+    let template =  localStorage.getItem("template")
     
     function openDebate(index) {
       isOnDebatePage = true
       debateIndex = index
     }
 
+    function switchFullScreen() {
+      isOnFullWriteScreen = !isOnFullWriteScreen
+    }
+
     function closeDebate() {
       isOnDebatePage = false
+      isOnFullWriteScreen = false
       debates.set(data)
     }
 
@@ -25,16 +33,17 @@
       data.splice(index, 1)
       data = data
       debates.set(data)
+      isOnFullWriteScreen = false
       isOnDebatePage = false
     }
 
     function addDebate() {
       data.push(
         {
-          house: "Opening Gov",
+          house: "1º Governo",
           call: [0, 0, 0, 0],
-          motion: "THB...",
-          notes: "",
+          motion: "EC...",
+          notes: template
         }
       )
       data = data
@@ -43,8 +52,26 @@
 </script>
 
 
-{#if isOnDebatePage}
-
+{#if isOnFullWriteScreen}
+  <!--Note Taking Full Screen Mode-->
+  <Btn 
+    icon={mdiFullscreenExit} 
+    isTop={true} 
+    func={switchFullScreen}
+  />
+  <nav>DEBATES</nav>
+  <Input 
+    modifier="full" 
+    bind:value={data[debateIndex].notes}
+  />
+  
+{:else if isOnDebatePage}
+  <!--Debate Overview Mode-->
+  <Btn 
+    icon={mdiFullscreen} 
+    isTop={true} 
+    func={switchFullScreen}
+  />
   <SingleDebate
     bind:data={data[debateIndex]}
     onExit={closeDebate}
@@ -52,8 +79,9 @@
   />
 
 {:else}
-
+  <!--Debates List Mode-->
   <nav>DEBATES</nav>
+
   <main>
     {#each data as d, i}
       <DebateCard
@@ -65,6 +93,7 @@
    
     <Btn icon={mdiPlus} func={addDebate}/>
   </main>
+
 {/if}
   
 <style> 
@@ -73,6 +102,7 @@
     max-width: 700px;
     margin: auto;
   }
+  
   nav {
     background-color: var(--nav-color);
     width: 100%;

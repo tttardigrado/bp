@@ -1,8 +1,16 @@
 <script>
     export let motion = ""
-    export let pos = "Opening Gov"
+    export let pos = "1º Governo"
     export let func = () => {}
 
+    const houses = {
+        OG: "1º Governo",
+        OO: "1ª Oposição",
+        CG: "2º Governo",
+        CO: "2ª Oposição",
+    }
+
+    // Format the Motion to fit the screen
     const maxMotionLen = 70
     if (motion.length > maxMotionLen) {
         motion = motion.substring(0, maxMotionLen) + "..."
@@ -14,14 +22,14 @@
        {motion}
     </div>
     <div class="info">
-        {#if pos === 1 || pos === "Opening Gov"}
-            <span class="og">Opening Gov</span>
-        {:else if pos === 2 || pos === "Opening Opp"}
-            <span class="oo">Opening Opp</span>
-        {:else if pos === 3 || pos === "Closing Gov"}
-            <span class="cg">Closing Gov</span>
-        {:else if pos === 4 || pos === "Closing Opp"}
-            <span class="co">Closing Opp</span>
+        {#if pos === 1 || pos === houses.OG}
+            <span class="og">{houses.OG}</span>
+        {:else if pos === 2 || pos === houses.OO}
+            <span class="oo">{houses.OO}</span>
+        {:else if pos === 3 || pos === houses.CG}
+            <span class="cg">{houses.CG}</span>
+        {:else if pos === 4 || pos === houses.CO}
+            <span class="co">{houses.CO}</span>
         {:else if pos === 4}
             <span class=""></span>
         {/if}
@@ -64,10 +72,10 @@
   .info .og {
     color: var(--color-1-min);
   }
-  .info .oo {
+  .info .cg {
     color: var(--color-6-min);
   }
-  .info .cg {
+  .info .oo {
     color: var(--color-7-min);
   }
   .info .co {

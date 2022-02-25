@@ -89,5 +89,5 @@ export const themes = {
     "TokyoNight": tokyo, 
     "Umbra": umbra, 
     "OneDark": onedark,
-	"": nord
+	"": nord,
 }
