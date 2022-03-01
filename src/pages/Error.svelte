@@ -1,7 +1,6 @@
 <script>
-    export let title = ""
+  export let title = ""
 </script>
-
 
 <nav>{title}</nav>
 <main>

@@ -1,39 +1,42 @@
 <script>
-    import { Field, Button} from "svelte-chota";
-    import { mdiTrashCan, mdiCheck } from "@mdi/js";
-    import Input from "../components/Input.svelte";
-    import Select from "../components/Select.svelte";
-    import DeleteModal from "../components/DeleteModal.svelte";
+  import { Field, Button} from "svelte-chota";
+  import { mdiTrashCan, mdiCheck } from "@mdi/js";
+  import Input from "../components/Input.svelte";
+  import Select from "../components/Select.svelte";
+  import DeleteModal from "../components/DeleteModal.svelte";
 
-    export let onExit = () => {}
-    export let deleteDebate = () => {}
+  export let onExit = () => {}
+  export let deleteDebate = () => {}
 
-    const houseOptions = [
-        "1º Governo",
-        "1ª Oposição",
-        "2º Governo",
-        "2ª Oposição"
-    ]
+  const houseOptions = [
+      "1º Governo",
+      "1ª Oposição",
+      "2º Governo",
+      "2ª Oposição"
+  ]
 
-    export let data = {
-      index: 0,
-      house: houseOptions[0],
-      call: [1,2,3,4],
-      motion: "THB",
-      notes: "",
-    }
+  // Default data
+  export let data = {
+    index: 0,
+    house: houseOptions[0],
+    call: [0, 0, 0, 0],
+    motion: "ECA",
+    notes: "",
+  }
 
-    function changeCall(house) {
-      data.call[house] = data.call[house] % 4 + 1 
-    }
+  // Handle a press on the Call box
+  function changeCall(house) {
+    data.call[house] = data.call[house] % 4 + 1 
+  }
 
-    let modal_open = false;
-    const modal_show = event => modal_open = true;
+  let modal_open = false;
+  const modal_show = event => modal_open = true;
 </script>
 
 
 <nav>DEBATES</nav>
 <main>
+    <!-- Motion Input Box -->
     <Field label="Moção">
         <Input 
           bind:value={data.motion} 
@@ -41,6 +44,7 @@
         />
     </Field>
 
+    <!-- House Selection Box -->
     <Select 
       title="Casa" 
       bind:value={data.house} 
@@ -49,6 +53,7 @@
 
     <br><hr><br>
 
+    <!-- Debate Notes Input -->
     <Field label="Notas">
         <Input 
           modifier="textarea" 
@@ -59,24 +64,26 @@
 
     <br><hr><br>
 
+    <!-- Call Box -->
+    <!-- TODO: Export to a new Component -->
     <Field label="Call">
       <div class="call">
 
         <div class="call2">
           <Button primary on:click={() => {changeCall(0)}}>
-            {data.call[0]}
+            {data.call[0]} <!-- OG -->
           </Button>
           <Button primary on:click={() => {changeCall(1)}}>
-            {data.call[1]}
+            {data.call[1]} <!-- OO -->
           </Button>
         </div>
 
         <div class="call2">
           <Button primary on:click={() => {changeCall(2)}}>
-            {data.call[2]}
+            {data.call[2]} <!-- CG -->
           </Button>
           <Button primary on:click={() => {changeCall(3)}}>
-            {data.call[3]}
+            {data.call[3]} <!-- CO -->
           </Button>
         </div>
         
@@ -86,10 +93,12 @@
     <br><hr><br>
 
     <div class="btns">
+        <!-- Delete Btn (open the delete modal) -->
         <Button error 
           icon={mdiTrashCan} 
           on:click={modal_show}
         />
+        <!-- Exit && Save Btn -->
         <Button success 
           icon={mdiCheck} 
           on:click={onExit}
@@ -118,14 +127,14 @@
   }
 
   .btns {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .call {
     border-radius: 6px;
-    border: 1px solid var(--color-darkGrey);
+    border: 1px solid var(--bg-secondary-color);
     width:100%;
     background-color: var(--bg-secondary-color);
     transition: border 0.3s;

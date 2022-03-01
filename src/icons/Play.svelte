@@ -1,7 +1,7 @@
 <script>
+    // Play Icon component
     export let color = "var(--color-primary)"
     export let style = "position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%) scale(3)"
-
 </script>
 
 <div class="icon" style={style}>

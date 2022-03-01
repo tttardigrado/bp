@@ -1,22 +1,28 @@
 const sb = require("./supabase")
 
 exports.handler = async function(event, context) {
-  const filter = "like"
-  let param = "%" + event["queryStringParameters"]["kw"] + "%"
+
+  // filter and keyword-parameter values
+  const filter = "ilike"
+  const param = "%" + event["queryStringParameters"]["kw"] + "%"
+
+  // Select data from the DB
   let { data, error } = await sb.supabase
       .from('Motions')
       .select("*")
       .eq("lang", "pt")
-      .or(`kw1.${filter}.${param},kw2.${filter}.${param},kw3.${filter}.${param}`)
+      .or(`kw1.${filter}.${param},kw2.${filter}.${param},kw3.${filter}.${param},motion.${filter}.${param}`)
 
   if (data == []) {
+    // No data -> No motion has a compatible keyword -> Error
     return {
       statusCode: 404,
       body: "Error"
     }
   }
 
-  let single = sb.grt_random(data)
+  // Get a random motion from data
+  let single = sb.get_random(data)
 
   return {
     statusCode: 200,

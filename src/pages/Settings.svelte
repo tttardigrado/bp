@@ -9,7 +9,9 @@
     const motionFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSdK25wEHpPXT5xOMQgKvpThD6RIchiV6jUZu68Df8WH_jGULQ/viewform"
   
     let schemes = [
-      "Nord", "GruvBox", "TokyoNight", "Umbra", "OneDark"
+      "Nord", "TokyoNight", "Umbra", "OneDark", "Pastel",
+      "Spotify", "Discord", "Moxfield", "Twitter", 
+      "Whatsapp", "GitHub", "YouTube"
     ]
     let schemesValue = localStorage.getItem("theme")
   
@@ -70,10 +72,6 @@
   
   <br><br>
 </main>
-
-<div class="credits">
-  Criado por: <a href="https://force4760.netlify.app/" target="_blank"> Gonçalo Teixeira</a>
-</div>
     
 <style>
   main {
@@ -91,19 +89,6 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-  }
-  
-  .credits {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-  }
-  .credits a {
-    color: var(--font-color);
-  }
-
-  a:hover {
-    text-decoration: none;
   }
 
   .btndiv {

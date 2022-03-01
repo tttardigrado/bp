@@ -14,6 +14,7 @@
 </script>
 
 <Nav bind:page ></Nav>
+
 {#if page == "Temporizador"}
   <Timer/>
 {:else if page == "Draw"}
@@ -27,7 +28,3 @@
 {:else if page == "Definições"}
   <Settings/>
 {/if}
-  
-<style>
-
-</style>

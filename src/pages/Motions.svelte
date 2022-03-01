@@ -18,8 +18,10 @@
     let link = ""
 
     if (keyword == "") {
+      // No keyword -> just gets a random motion from the DB
       link = "/api/getRandMotion"
     } else {
+      // Gets a random motion that is tagged with this keyword
       link = `/api/getKeyWordedMotion?kw=${keyword}`
     }
 
@@ -43,8 +45,7 @@
 
 <nav>MOÇÕES</nav>
 <main>
-
-  <!-- Search -->
+  <!-- Search Bar -->
   <Field gapless >
     <Input placeholder="Palavra Chave..." bind:value={keyword}/>
     <Button 
@@ -65,7 +66,6 @@
     <div class="title">Info Slide</div>
     {infoSlide}
   </div>
-  
 </main>
   
 <style>
@@ -88,7 +88,7 @@
   
   .block {
     border-radius: 6px;
-    border: 1px solid var(--color-darkGrey);
+    border: 1px solid var(--bg-secondary-color);
     width:100%;
     
     background-color: var(--bg-secondary-color);

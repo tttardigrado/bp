@@ -39,7 +39,7 @@
 <style>
   .debate {
     border-radius: 6px;
-    border: 1px solid var(--color-darkGrey);
+    border: 1px solid var(--bg-secondary-color);
     width:100%;
     
     background-color: var(--bg-secondary-color);
