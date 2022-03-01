@@ -109,7 +109,7 @@
   }
   
   // Make the timer "tic" every second
-  setInterval(increment, 100)
+  setInterval(increment, 1000)
 </script>
 
 <nav>TEMPORIZADOR</nav>
