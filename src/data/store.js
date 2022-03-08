@@ -99,7 +99,8 @@ debates.subscribe(value => {
 			{
 				house: "1º Gov",
 				call: [1,2,3,4],
-				motion: "ECA",
+				motion: "ECA...",
+				infoslide: "",
 				notes: "",
 			}
 		];

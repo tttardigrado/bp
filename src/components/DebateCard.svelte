@@ -1,5 +1,6 @@
 <script>
     export let motion = ""
+    export let info = ""
     export let pos = "1º Governo"
     export let func = () => {}
 
@@ -30,8 +31,13 @@
             <span class="cg">{houses.CG}</span>
         {:else if pos === 4 || pos === houses.CO}
             <span class="co">{houses.CO}</span>
-        {:else if pos === 4}
-            <span class=""></span>
+        {:else}
+            <span></span>
+        {/if}
+        {#if info != ""}
+          <span class="is">IS</span>
+        {:else}
+          <span></span>
         {/if}
     </div>
 </div>
@@ -69,7 +75,8 @@
     padding: 1rem 2rem;
   }
 
-  .info .og {
+  .info .og, 
+  .is {
     color: var(--color-1-min);
   }
   .info .cg {

@@ -55,6 +55,7 @@
         house: "1º Governo",
         call: [0, 0, 0, 0],
         motion: "EC...",
+        infoslide: "",
         notes: template
       }
     )
@@ -104,6 +105,7 @@
     {#each data as debate, index}
       <DebateCard
         motion={debate.motion}
+        info={debate.infoslide}
         pos={debate.house}
         func={() => openDebate(index)}
       />

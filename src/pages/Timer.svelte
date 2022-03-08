@@ -2,7 +2,7 @@
   import Play from "../icons/Play.svelte"
   import Pause from "../icons/Pause.svelte"
   import Btn from "../components/Btn.svelte"
-  import { mdiRestart, mdiAutorenew } from "@mdi/js";
+  import { mdiRestart, mdiSwapHorizontal } from "@mdi/js";
   import { getAudio } from "../data/audio";
 
   let seconds = 0
@@ -130,7 +130,7 @@
       {/if}
     </div>
   
-    <Btn icon={mdiAutorenew} isLeft={true} func={switchTimerType}/>
+    <Btn icon={mdiSwapHorizontal} isLeft={true} func={switchTimerType}/>
 
     <div class="type">{isPrep ? "PREP TIME" : "SPEECH"}</div>
 

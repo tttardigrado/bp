@@ -5,22 +5,25 @@
     export let func
     export let isLeft = false
     export let isTop = false
+
+    const bgStyle = ":active {background-color: red;}" 
 </script>
 
 
 {#if isTop}
 <div class="btn top" >
-    <Button primary outline icon={icon} on:click={func} />
+    <Button primary outline icon={icon} on:click={func} style={bgStyle}/>
 </div>
 {:else if isLeft}
     <div class="btn" style="left: 2rem;">
-        <Button primary icon={icon} on:click={func} />
+        <Button primary icon={icon} on:click={func} style={bgStyle}/>
     </div>
 {:else}
     <div class="btn" style="right: 2rem;">
-        <Button primary icon={icon} on:click={func} />
+        <Button primary icon={icon} on:click={func} style={bgStyle}/>
     </div>
 {/if}
+
 <style>
     .btn {
       position: fixed;
@@ -29,6 +32,7 @@
       justify-content: flex-start;
       align-items: flex-start;
     }
+
     .top{
       position: absolute;
       z-index: 100;

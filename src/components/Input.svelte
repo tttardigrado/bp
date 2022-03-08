@@ -3,6 +3,7 @@
     export let value = ""
     export let placeholder
     export let modifier = ""
+    export let rows = 5
 
     const style = "background-color: var(--bg-secondary-color); color: var(--font-color)"
     const style2 = style + "width: 50%; height: calc(100% - 6rem); position: absolute; top:6rem; left:0; z-index:90"
@@ -20,7 +21,7 @@
 {:else if modifier == "textarea"}
     <!--Simple Text Area-->
     <textarea
-        rows="5"
+        rows={rows}
         style={style}
         bind:value
     />
@@ -43,6 +44,6 @@
 <style>
     textarea{
         resize: vertical;
-        min-height: 10rem;
+        min-height: 5rem;
     }
 </style>

@@ -39,10 +39,21 @@
     <!-- Motion Input Box -->
     <Field label="Moção">
         <Input 
+          modifier="textarea"
+          rows={1}
           bind:value={data.motion} 
-          placeholder="Motion"
+          placeholder="Moção"
         />
     </Field>
+    <!-- Motion Input Box -->
+    <Field label="Info Slide">
+      <Input
+        modifier="textarea" 
+        rows={1}
+        bind:value={data.infoslide} 
+        placeholder="Info Slide"
+      />
+  </Field>
 
     <!-- House Selection Box -->
     <Select 

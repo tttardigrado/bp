@@ -1,14 +1,14 @@
 <script>
-  import { mdiMagnify, mdiPlus } from "@mdi/js";
+  import { mdiMagnify, mdiPlus} from "@mdi/js";
   import { Button, Field } from "svelte-chota";
   import Input from "../components/Input.svelte";
+  import MotionCard from "../components/MotionCard.svelte";
   import Btn from "../components/Btn.svelte";
   import { debates } from "../data/store";
 
   // Local Storage Values
   let data = JSON.parse(localStorage.getItem("debates"));
   let template = localStorage.getItem("template")
-
 
 
   // Default Strings
@@ -19,7 +19,6 @@
   let motion = defaultMotion
   let infoSlide = defaultInfoSlide
   let keyword = ""
-
 
   function show(msg, color) {
     // Get #notify
@@ -75,23 +74,19 @@
     if (motion == errorMsg || motion == defaultMotion) {
       show("Não há moção!", "error")
       return 
-    }
+    } 
 
-    let notes 
+    // Set the InfoSlide parameter for the debate
+    let info = infoSlide != defaultInfoSlide ? infoSlide : "" 
 
-    if (infoSlide != defaultInfoSlide) {
-      notes = infoSlide + "\n\n" + template
-    } else {
-      notes = template
-    }
-    
     // Add debate
     data.push(
       {
         house: "1º Governo",
         call: [0, 0, 0, 0],
         motion: motion,
-        notes: notes
+        infoslide: info,
+        notes: template
       }
     )
 
@@ -116,16 +111,16 @@
   </Field>
 
   <!-- Motion Card -->
-  <div class="block">
-    <div class="title">Moção</div>
-    {motion}
-  </div>
+  <MotionCard
+    name="Moção"
+    text={motion}
+  />
 
   <!-- Info Slide Card -->
-  <div class="block">
-    <div class="title">Info Slide</div>
-    {infoSlide}
-  </div>
+  <MotionCard
+    name="Info Slide"
+    text={infoSlide}
+  />
 
   <Btn icon={mdiPlus} func={addDebate}/>
 
@@ -150,27 +145,7 @@
     font-size: 24px;
   }
   
-  .block {
-    border-radius: 6px;
-    border: 1px solid var(--bg-secondary-color);
-    width:100%;
-    
-    background-color: var(--bg-secondary-color);
-    transition: border 0.3s;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    text-align: justify;
-    text-justify: inter-word;
-  }
-
-  .block:hover{
-    border: 1px solid var(--color-grey);
-  }
-
-  .title{
-    font-size: 2.5rem;
-    margin: auto;
-  }
+  
 
   #notify {
     background-color: var(--bg-secondary-color);
@@ -180,7 +155,7 @@
     border-radius: 6px;
     text-align: center;
 
-    position: absolute;
+    position: fixed;
     bottom: 1.8rem;
     left: 50%;
     transform: translate(-50%, 0);
@@ -188,6 +163,8 @@
 
     opacity: 0%;
     transition: opacity 1.5s;
+
+    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.3);
 
   }
 </style>
