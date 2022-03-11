@@ -52,14 +52,14 @@
   </Field>
  <hr><br>
   
- <div class="btndiv">
+ <!--<div class="btndiv">
     <Button outline primary>
       Salvar Dados
     </Button>
     <Button outline primary>
       Carregar Dados
     </Button>
- </div>
+ </div>-->
  <div class="btndiv">
     <Button 
       outline primary
