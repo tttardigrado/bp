@@ -7,10 +7,13 @@
   import Settings from "./pages/Settings.svelte";
   import Motions from "./pages/Motions.svelte";
   import Nav from "./components/Nav.svelte";
-  import Error from "./pages/Error.svelte";
+  import Stats from "./stats/Stats.svelte";
+  //import Error from "./pages/Error.svelte";
+
 
   let page = "Temporizador"
 
+  
 </script>
 
 <Nav bind:page ></Nav>
@@ -24,7 +27,7 @@
 {:else if page == "Moções"}
   <Motions/>
 {:else if page == "Estatísticas"}
-  <Error title="ESTATÍSTICAS"/>
+  <Stats/>
 {:else if page == "Definições"}
   <Settings/>
 {/if}
