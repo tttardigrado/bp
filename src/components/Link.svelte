@@ -6,7 +6,7 @@
 
 <div>
     <a href="{link}" target="_blank" style="--tabs: {3*tabs}rem">
-        ⭢ {text}
+        > {text}
     </a>
 </div>
 
