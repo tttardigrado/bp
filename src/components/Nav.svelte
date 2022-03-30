@@ -13,7 +13,8 @@
       "Debates",
       "Moções",
       "Estatísticas",
-      "Definições",
+      "Recursos",
+      "Definições"
     ];
   
     // Mobile menu click event handler

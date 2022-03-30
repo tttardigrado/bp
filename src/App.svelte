@@ -6,6 +6,7 @@
   import Debates from "./pages/Debates.svelte";
   import Settings from "./pages/Settings.svelte";
   import Motions from "./pages/Motions.svelte";
+  import Ressources from "./pages/Recursos.svelte";
   import Nav from "./components/Nav.svelte";
   import Stats from "./stats/Stats.svelte";
   //import Error from "./pages/Error.svelte";
@@ -30,4 +31,6 @@
   <Stats/>
 {:else if page == "Definições"}
   <Settings/>
+{:else if page == "Recursos"}
+  <Ressources/>
 {/if}
