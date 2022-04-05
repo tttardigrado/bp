@@ -122,6 +122,7 @@
     text={infoSlide}
   />
 
+  <!-- Add Current motion as a debate -->
   <Btn icon={mdiPlus} func={addDebate}/>
 
   <span id="notify"/>

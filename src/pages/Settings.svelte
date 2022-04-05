@@ -8,6 +8,9 @@
 
     const motionFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSdK25wEHpPXT5xOMQgKvpThD6RIchiV6jUZu68Df8WH_jGULQ/viewform"
   
+    //////////////////////////////
+    // Color Schemes
+    //////////////////////////////
     let schemes = [
       "Nord", "TokyoNight", "Umbra", "OneDark", "Pastel",
       "Spotify", "Discord", "Moxfield", "Twitter", 
@@ -19,6 +22,9 @@
       theme.set(schemesValue)
     }
   
+    //////////////////////////////
+    // Audio FX
+    //////////////////////////////
     let sounds = [
       "Bell", "Box", "Cash", "Coin", "Error", "None"
     ]
@@ -29,11 +35,16 @@
       getAudio().play()
     }
 
+    //////////////////////////////
+    // Notes Template
+    //////////////////////////////
     let templateValue = localStorage.getItem("template")
   
     function processTemplate(){
       template.set(templateValue)
     }
+
+    
 </script>
   
 <nav>DEFINIÇÕES</nav>

@@ -30,36 +30,57 @@
     }
   }
 
+  // Update the timer - speech version
   function speechTimer(){
     if (seconds <= min1InSecs){
+      // 0 - 1 min
+      // play audio at minute 1
       if (seconds === min1InSecs) {
         audioPlayer.play()
       }
+
       barColor = "var(--color-1-min)"
+
     } else if (seconds <= min6InSecs) {
+      // 1 - 6 min
+      // play audio at minute 6
       if (seconds === min6InSecs) {
         audioPlayer.play()
       }
+
       barColor = "var(--color-6-min)"
+
     } else if (seconds <= min7InSecs) {
+      // 6 - 7 min
+      // play audio at minute 7
       if (seconds === min7InSecs) {
         audioPlayer.play()
       }
+
       barColor = "var(--color-7-min)"
+
     } else if (seconds === min715InSecs){
+      // end of speech
+      // play audio -> change color -> start flicker
       audioPlayer.play()
       barColor = "var(--color-7-15-min)"
       extraClass = "flicker"
+
     }
 
     // Update the bar
     setBarLen()
   }
 
+  // Update the timer - prep version
   function prepTimer(){
     if (seconds < min15InSecs) {
+      // still prep
       barColor = "var(--color-1-min)"
+
     } else if (seconds === min15InSecs){
+      // end of prep time
+      // play audio -> change color -> start flicker
       audioPlayer.play()
       barColor = "var(--color-7-15-min)"
       extraClass = "flicker"
@@ -132,7 +153,7 @@
   
     <Btn icon={mdiSwapHorizontal} isLeft={true} func={switchTimerType}/>
 
-    <div class="type">{isPrep ? "PREP TIME" : "SPEECH"}</div>
+    <div class="type">{isPrep ? "PREP TIME" : "DISCURSO"}</div>
 
     <!-- Reset the timer Btn-->
     <Btn icon={mdiRestart} func={reset}/>

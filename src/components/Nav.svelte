@@ -12,7 +12,6 @@
       "Draw",
       "Debates",
       "Moções",
-      "Estatísticas",
       "Recursos",
       "Definições"
     ];

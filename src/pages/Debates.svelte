@@ -1,14 +1,17 @@
 <script>
-  import { mdiPlus, mdiFullscreen, mdiFullscreenExit } from "@mdi/js";
+  import { mdiPlus, mdiFullscreen, mdiFullscreenExit, mdiFormatListBulleted, mdiChartBarStacked } from "@mdi/js";
   import { debates } from "../data/store";
   import Btn from "../components/Btn.svelte";
   import DebateCard from "../components/DebateCard.svelte";
   import Input from "../components/Input.svelte";
   import SingleDebate from "./SingleDebate.svelte";
+  import Stats from "../stats/Stats.svelte";
 
   let isOnDebatePage = false;
   let isOnFullWriteScreen = false;
   let debateIndex = 0;
+
+  let isOnStats = false;
 
   // Debates data object
   let data = JSON.parse(localStorage.getItem("debates"));
@@ -27,9 +30,11 @@
   }
 
   // Exit out of a debate page
-  function closeDebate() {
-    isOnDebatePage = false
-    isOnFullWriteScreen = false
+  function saveDebate(isToQuit) {
+    if (isToQuit) {
+      isOnDebatePage = false
+      isOnFullWriteScreen = false
+    }
 
     // save data
     debates.set(data)
@@ -66,6 +71,10 @@
     // Set the localStorage
     debates.set(data)
   }
+
+  function switchStats() {
+    isOnStats = !isOnStats
+  }
 </script>
 
 
@@ -92,9 +101,17 @@
   />
   <SingleDebate
     bind:data={data[debateIndex]}
-    onExit={closeDebate}
+    onExit={saveDebate}
     deleteDebate={() => deleteDebate(debateIndex)}
   />
+
+{:else if isOnStats}
+  <!--Debate Overview Mode-->
+  <nav>DEBATES</nav>
+  <Stats/>
+
+  <!--UnShow Stats-->
+  <Btn icon={mdiFormatListBulleted} func={switchStats} isLeft={true}/>
 
 {:else}
   <!--Debates List Mode-->
@@ -113,6 +130,9 @@
    
     <!--New Debate Icon-->
     <Btn icon={mdiPlus} func={addDebate}/>
+
+    <!--Show Stats-->
+    <Btn icon={mdiChartBarStacked} func={switchStats} isLeft={true}/>
   </main>
 {/if}
   

@@ -22,11 +22,13 @@ The most important thing I learned when I got into university is that **Debates 
 * Debate Notes Template
 
 ## TODO:
-- [ ] Add Multiple Fonts
 - [ ] Add POI timer
-- [ ] Add Personal Motions
-- [ ] Auto Save Debates
+- [X] Auto Save Debates
 - [ ] Non-Motion Sugestion form
+- [ ] More resources
+- [ ] Up/download data
+- [ ] Export stats as PNG
+- [X] Show if the debate has infoslide on the card
 
 ## Acknowledgement (Portuguese)
 Obrigado a todos os que me apoiam e incentivam a continuar a desenvolver este site. Obrigado a todo o DCU por serem pessoas magníficas com quem posso discutir ideias, entender as minhas falhas, aprender, divertir-me e, no fundo, tornar-me uma pessoa melhor.

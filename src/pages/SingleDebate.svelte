@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy } from 'svelte';
   import { Field, Button} from "svelte-chota";
   import { mdiTrashCan, mdiCheck } from "@mdi/js";
   import Input from "../components/Input.svelte";
@@ -31,6 +32,8 @@
 
   let modal_open = false;
   const modal_show = event => modal_open = true;
+
+  onDestroy(() => onExit(false));
 </script>
 
 
@@ -112,7 +115,7 @@
         <!-- Exit && Save Btn -->
         <Button success 
           icon={mdiCheck} 
-          on:click={onExit}
+          on:click={() => onExit(true)}
         />
     </div>
 </main>

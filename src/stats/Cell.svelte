@@ -44,7 +44,7 @@
         align-items: center;
     }
 
-    @media(max-width: 350px){
+    @media(max-width: 400px){
         .cell{
             width: 4.8rem;
             height: 4.8rem;

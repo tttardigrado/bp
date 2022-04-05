@@ -46,7 +46,6 @@
     }
 </script>
 
-<nav>ESTATÍSTICAS</nav>
 <main>
 <div class="center">
     <Heatmap {vals} {isToShow}/>
