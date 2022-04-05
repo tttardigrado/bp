@@ -1,19 +1,28 @@
 <script>
+    import { mdiMinus, mdiPlus, mdiCalculatorVariantOutline } from "@mdi/js" 
     import { Field, Button} from "svelte-chota"   
-    import Input from "../components/Input.svelte"
-    import { mdiMinus, mdiPlus } from "@mdi/js" 
+    import Btn from "../components/Btn.svelte"
+    import { bpBreak } from "../data/calc"
+    
 
-    let teams = 4
+    ////////////////////////////////////////
+    // TEAMS
+    ////////////////////////////////////////
+    let teams = 8
     function plusTeams() {
       teams += 4
     }
     function minusTeams() {
       teams -= 4
+
       if (teams < 0) {
         teams = 0
       }
     }
 
+    ////////////////////////////////////////
+    // ROUNDS
+    ////////////////////////////////////////
     let rounds = 5
     function plusRound() {
       rounds++
@@ -25,27 +34,70 @@
         rounds = 0
       }
     }
+
+    ////////////////////////////////////////
+    // BREAKS
+    ////////////////////////////////////////
+    let breaks = 8
+    function plusBreak() {
+      breaks += 4
+    }
+    function minusBreak() {
+      breaks -= 4
+
+      if (breaks < 0) {
+        breaks = 0
+      }
+    }
+
+    ////////////////////////////////////////
+    // RESULTS
+    ////////////////////////////////////////
+    let worstText = "Todas as equipas com X ou mais pontos fazem break."
+    let bestText = "Todas as equipas com X ou mais pontos fazem break."
+    function calculate() {
+      // sanitize input
+      if (breaks > teams) {
+        breaks = teams
+      }
+
+      let txt = bpBreak(teams, rounds, breaks)
+      worstText = txt[0]
+      bestText = txt[1]
+    }
 </script>
   
 <nav>Calculadora</nav>
 <main>
-    <Field gapless>
-        <Button icon={mdiMinus} primary/>
+    <Field gapless label="Equipas">
+        <Button on:click={minusTeams} icon={mdiMinus} primary/>
         <span> {teams} </span>
-        <Button icon={mdiPlus} primary/>
+        <Button on:click={plusTeams} icon={mdiPlus} primary/>
     </Field>
 
-    <Field gapless>
-        <Button icon={mdiMinus} primary/>
-        <Input placeholder="Rounds"/>
-        <Button icon={mdiPlus} primary/>
+    <Field gapless label="Rondas">
+      <Button on:click={minusRound} icon={mdiMinus} primary/>
+      <span> {rounds} </span>
+      <Button on:click={plusRound} icon={mdiPlus} primary/>
     </Field>
 
-    <Field gapless>
-        <Button icon={mdiMinus} primary/>
-        <Input placeholder="Breaking Teams"/>
-        <Button icon={mdiPlus} primary/>
+    <Field gapless label="Breaks">
+      <Button on:click={minusBreak} icon={mdiMinus} primary/>
+      <span> {breaks} </span>
+      <Button on:click={plusBreak} icon={mdiPlus} primary/>
     </Field>
+
+  <br>
+
+  <h3>Melhor Caso</h3>
+  {bestText}
+
+  <br>
+  <br>
+  <h3>Pior Caso</h3>
+  {worstText}
+
+  <Btn icon={mdiCalculatorVariantOutline} func={calculate}/>
   
 </main>
     
@@ -66,5 +118,15 @@
     justify-content: center;
     font-size: 24px;
   }
+
+  span {
+    width: 100vw;
+    background-color: var(--nav-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
 </style>
   

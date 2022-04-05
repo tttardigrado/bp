@@ -12,6 +12,7 @@
       "Draw",
       "Debates",
       "Moções",
+      "Calculadora",
       "Recursos",
       "Definições"
     ];

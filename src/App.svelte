@@ -8,11 +8,11 @@
   import Motions from "./pages/Motions.svelte";
   import Ressources from "./pages/Recursos.svelte";
   import Nav from "./components/Nav.svelte";
-  //import Calc from "./pages/Calc.svelte";
+  import Calc from "./pages/Calc.svelte";
   //import Error from "./pages/Error.svelte";
 
 
-  let page = "Temporizador"
+  let page = "Calculadora"
 
   
 </script>
@@ -31,6 +31,6 @@
   <Settings/>
 {:else if page == "Recursos"}
   <Ressources/>
-<!--{:else if page == "Calculadora"}
-  <Calc/>-->
+{:else if page == "Calculadora"}
+  <Calc/>
 {/if}
