@@ -12,7 +12,7 @@
   //import Error from "./pages/Error.svelte";
 
 
-  let page = "Calculadora"
+  let page = "Temporizador"
 
   
 </script>
