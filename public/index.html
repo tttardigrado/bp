@@ -61,7 +61,10 @@
   			}
 		}
 
-		getWake();
+		if (localStorage.getItem("wake") == "Manter Ligado") {
+			getWake();
+		}
+
 	</script>
 </body>
 </html>

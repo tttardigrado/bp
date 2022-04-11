@@ -71,7 +71,22 @@ export const audio = writable(storedAudio);
 audio.subscribe(value => {
 	// Set the "audio" item
 	// Default is "/audio/bell.mp3" (path to the bell sound)
-    localStorage.setItem("audio", value ? value : "/audio/bell.mp3");
+    localStorage.setItem("audio", value ? value : "bell");
+});
+
+// ---------- Audio ---------- 
+const WAKE_ON = "Manter Ligado"
+const WAKE_OFF = "Desligar"
+
+export const wakeModes = [WAKE_ON, WAKE_OFF]
+
+const storedWake = localStorage.getItem("wake");
+
+export const wake = writable(storedWake);
+
+wake.subscribe(value => {
+	// Set the "wake" item
+    localStorage.setItem("wake", value ? value : WAKE_ON);
 });
 
 // ---------- Template ---------- 
