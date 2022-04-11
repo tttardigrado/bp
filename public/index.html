@@ -50,5 +50,18 @@
 		  });
   		}
 	</script>
+	<script>
+		let wakeLock = null;
+
+		async function getWake() {
+  			try {
+				wakeLock = await navigator.wakeLock.request("screen");
+  			} catch (err) {
+				wakeLock = null;
+  			}
+		}
+
+		getWake();
+	</script>
 </body>
 </html>

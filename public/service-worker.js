@@ -1,6 +1,5 @@
 const cacheName = "breaker"
 const staticAssets = [
-  "./",
   "./index.html",
   "./favicon.png",
   "./global.css",

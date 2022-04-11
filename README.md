@@ -14,6 +14,7 @@ The most important thing I learned when I got into university is that **Debates 
 ## Tools
 * Timer
 * Draw
+* Break Calculator
 * Debate Log
 * Motion Search
 * Stats
@@ -29,6 +30,7 @@ The most important thing I learned when I got into university is that **Debates 
 - [ ] Up/download data
 - [ ] Export stats as PNG
 - [X] Show if the debate has infoslide on the card
+- [ ] Break Calculator
 
 ## Acknowledgement (Portuguese)
 Obrigado a todos os que me apoiam e incentivam a continuar a desenvolver este site. Obrigado a todo o DCU por serem pessoas magníficas com quem posso discutir ideias, entender as minhas falhas, aprender, divertir-me e, no fundo, tornar-me uma pessoa melhor.
