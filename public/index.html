@@ -40,6 +40,7 @@
 	  </style>
 </head>
 
+
 <body>
 	<script>
 		if ("serviceWorker" in navigator) {
@@ -50,21 +51,6 @@
 		  });
   		}
 	</script>
-	<script>
-		let wakeLock = null;
-
-		async function getWake() {
-  			try {
-				wakeLock = await navigator.wakeLock.request("screen");
-  			} catch (err) {
-				wakeLock = null;
-  			}
-		}
-
-		if (localStorage.getItem("wake") == "Manter Ligado") {
-			getWake();
-		}
-
-	</script>
+	
 </body>
 </html>

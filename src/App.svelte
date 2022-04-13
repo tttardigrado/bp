@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "chota";
 
   import Timer from "./pages/Timer.svelte";

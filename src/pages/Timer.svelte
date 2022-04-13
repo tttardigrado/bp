@@ -1,9 +1,13 @@
 <script>
+  import { mdiRestart, mdiSwapHorizontal } from "@mdi/js";
+
   import Play from "../icons/Play.svelte";
   import Pause from "../icons/Pause.svelte";
   import Btn from "../components/Btn.svelte";
-  import { mdiRestart, mdiSwapHorizontal } from "@mdi/js";
   import { getAudio } from "../data/audio";
+  import { noSleep } from "../data/wake";
+
+  let wakeLock = noSleep();
 
   ////////////////////
   // Time
