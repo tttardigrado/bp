@@ -43,6 +43,14 @@
       link="https://www.youtube.com/watch?v=lIgxr1GzXDU"
       text="Stop sucking at principles"
     />
+    <Link
+      link="https://www.youtube.com/watch?v=acXxhooa73c"
+      text="Whip"
+    />
+    <Link
+      link="https://www.youtube.com/watch?v=7iq247GGA_8"
+      text="How to nail arguments about narratives, messages and symbols"
+    />
 
     <br />
 

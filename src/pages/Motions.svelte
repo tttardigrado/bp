@@ -1,10 +1,14 @@
-<script>
-  import { mdiMagnify, mdiPlus} from "@mdi/js";
+<script lang="ts">
+  import { mdiClipboard, mdiMagnify, mdiPlus} from "@mdi/js";
   import { Button, Field } from "svelte-chota";
+  
   import Input from "../components/Input.svelte";
   import MotionCard from "../components/MotionCard.svelte";
   import Btn from "../components/Btn.svelte";
+  import Notify from './../components/Notify.svelte';
+
   import { debates } from "../data/store";
+  import { show } from '../data/show';
 
   // Local Storage Values
   let data = JSON.parse(localStorage.getItem("debates"));
@@ -20,24 +24,9 @@
   let infoSlide = defaultInfoSlide
   let keyword = ""
 
-  function show(msg, color) {
-    // Get #notify
-    let notify = document.getElementById("notify")
-
-    // Change properties
-    notify.innerText = msg
-    notify.style.color = `var(--color-${color})`
-    notify.style.opacity = "100%"
-
-    // after 2s start to fade
-    setTimeout(() => {
-      notify.style.opacity = "0%"
-    }, 2000);
-  }
-
   // Fetch a new Motion from the database
   // Use the keyword provided by the input to filter
-  function fetchMotion() {
+  const fetchMotion = () => {
     let link = ""
 
     if (keyword == "") {
@@ -70,7 +59,7 @@
 
 
   // Add a new debate
-  function addDebate() {
+  const addDebate = () => {
     if (motion == errorMsg || motion == defaultMotion) {
       show("Não há moção!", "error")
       return 
@@ -94,6 +83,25 @@
     debates.set(data)
 
     show("Debate Registado!", "success")
+  }
+
+  // Copy the motion and infoslide to the clipboard
+  const copyMotion = () => {
+    if (motion == errorMsg || motion == defaultMotion) {
+      show("Não há moção!", "error")
+      return 
+    }
+
+    // Copy the motion
+    let textToCopy = "Motion: \n" + motion
+
+    // Add the infoslide if it exists 
+    if (infoSlide != defaultInfoSlide) {
+      textToCopy += "\n\nInfoSlide: \n" + infoSlide
+    }
+
+    navigator.clipboard.writeText(textToCopy);
+    show("Copiado!", "success")
   }
 </script>
 
@@ -125,7 +133,10 @@
   <!-- Add Current motion as a debate -->
   <Btn icon={mdiPlus} func={addDebate}/>
 
-  <span id="notify"/>
+  <!-- Copy current motion to clipboard -->
+  <Btn icon={mdiClipboard} func={copyMotion} isLeft={true}/>
+
+  <Notify/>
 </main>
   
 <style>
@@ -144,28 +155,5 @@
     justify-content: center;
 
     font-size: 24px;
-  }
-  
-  
-
-  #notify {
-    background-color: var(--bg-secondary-color);
-    
-    margin: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-align: center;
-
-    position: fixed;
-    bottom: 1.8rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-    
-
-    opacity: 0%;
-    transition: opacity 1.5s;
-
-    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.3);
-
   }
 </style>
