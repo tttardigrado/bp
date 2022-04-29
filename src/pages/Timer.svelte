@@ -1,20 +1,49 @@
 <script>
-  import { mdiRestart, mdiSwapHorizontal } from "@mdi/js";
+  import { mdiBell, mdiRestart } from "@mdi/js";
 
   import Play from "../icons/Play.svelte";
   import Pause from "../icons/Pause.svelte";
   import Btn from "../components/Btn.svelte";
+  import TxtBtn from "../components/TxtBtn.svelte";
+
   import { getAudio } from "../data/audio";
   import { noSleep } from "../data/wake";
 
   let wakeLock = noSleep();
 
   ////////////////////
+  // POI
+  ////////////////////
+
+  let isDuringPoi = false
+  let poiText = "POI"
+
+  function endPoi() {
+    poiText = "POI"
+	  isDuringPoi = false 
+    window.navigator.vibrate(100);      
+  }
+
+  function poi() {
+    // If it's not already running
+		if (!isDuringPoi) {
+			// Start running
+      isDuringPoi = true
+
+      // Decrement every second
+      for (let i = 0; i < 15; i++) {
+      	setTimeout(_ => {poiText = `${15-i}`}, i * 1000);
+    	}
+
+      // Stop the poi timer
+      setTimeout(_ => endPoi(), 15000)
+    }
+}
+  ////////////////////
   // Time
   ////////////////////
 
   let seconds = 0;
-  let isPrep = false;
   let barColor = "var(--color-1-min)";
   let barLen = 100;
   let playing = false;
@@ -24,18 +53,12 @@
   const min6InSecs = 60 * 6; // 6.00 min
   const min7InSecs = 60 * 7; // 7.00 min
   const min715InSecs = min7InSecs + 15; // 7.15 min
-  const min15InSecs = 60 * 15; // 15.0 min
 
   let audioPlayer = getAudio();
 
   // Start/Stop the timer
   function switchOnOff() {
     playing = !playing;
-
-    // play on start
-    if (seconds == 0) {
-      audioPlayer.play();
-    }
   }
 
   // Update the timer - speech version
@@ -76,23 +99,6 @@
     setBarLen();
   }
 
-  // Update the timer - prep version
-  function prepTimer() {
-    if (seconds < min15InSecs) {
-      // still prep
-      barColor = "var(--color-1-min)";
-    } else if (seconds === min15InSecs) {
-      // end of prep time
-      // play audio -> change color -> start flicker
-      audioPlayer.play();
-      barColor = "var(--color-7-15-min)";
-      extraClass = "flicker";
-    }
-
-    // Update the bar
-    setBarLen(min15InSecs);
-  }
-
   // Update the TimeBar length based on the remaining time
   function setBarLen(time = min7InSecs) {
     // 0s   -> 100%
@@ -109,12 +115,6 @@
     extraClass = "";
   }
 
-  // Switch the type of timer (Prep Time / Seech time)
-  function switchTimerType() {
-    reset();
-    isPrep = !isPrep;
-  }
-
   // Increment and Update the Timer
   function increment() {
     if (!playing) {
@@ -125,11 +125,7 @@
     // Increment the timer
     seconds++;
 
-    if (isPrep) {
-      prepTimer();
-    } else {
-      speechTimer();
-    }
+    speechTimer()
   }
 
   // Make the timer "tic" every second
@@ -157,9 +153,11 @@
     {/if}
   </div>
 
-  <Btn icon={mdiSwapHorizontal} isLeft={true} func={switchTimerType} />
 
-  <div class="type">{isPrep ? "PREP TIME" : "DISCURSO"}</div>
+  <!-- Reset the timer Btn-->
+  <Btn icon={mdiBell} func={() => audioPlayer.play()} isLeft={true} />
+  
+  <TxtBtn func={poi}  txt={poiText}/>
 
   <!-- Reset the timer Btn-->
   <Btn icon={mdiRestart} func={reset} />
