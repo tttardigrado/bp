@@ -21,7 +21,7 @@
   function endPoi() {
     poiText = "POI"
 	  isDuringPoi = false 
-    window.navigator.vibrate(100);      
+    window.navigator.vibrate(500);      
   }
 
   function poi() {
