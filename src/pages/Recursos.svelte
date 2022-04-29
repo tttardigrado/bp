@@ -18,6 +18,26 @@
       link="https://drive.google.com/file/d/1rg9gNHM9-oFDmRPToiX0f5vlVIZP6gXz/view?usp=sharing"
       text="WUDC Judging Manual"
     />
+    <Link
+      link="https://drive.google.com/file/d/1HinB_GhRJK7w1l9cg9IQ5iOzQ3jnPCja/view?usp=sharing"
+      text="Pros and Cons"
+    />
+    <Link
+      link="https://drive.google.com/file/d/11Elw0zkFcnm9T-COF2kryJFzKMgX99wE/view?usp=sharing"
+      text="Training Guide for University Debating"
+    />
+    <Link
+      link="https://drive.google.com/file/d/1HQLuMe0Mo1_PiEr3ZONaEyPQ8bOadrr1/view?usp=sharing"
+      text="How to be a good and useful wing"
+    />
+    <Link
+      link="https://drive.google.com/file/d/1GpILvodIuywXAUy6n4bwl9D5_YSYnBfe/view?usp=sharing"
+      text="Como Ganhar em BP?"
+    />
+    <Link
+      link="https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing"
+      text="SDUL - Formações 101"
+    />
   </details>
 
   <details>

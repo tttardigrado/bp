@@ -26,7 +26,7 @@ The most important thing I learned when I got into university is that **Debates 
 
 ## TODO:
 
-- [ ] Add POI timer
+- [X] Add POI timer
 - [x] Auto Save Debates
 - [x] Non-Motion Sugestion form
 - [ ] More resources
