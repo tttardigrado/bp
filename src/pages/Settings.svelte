@@ -41,7 +41,7 @@
   //////////////////////////////
   // Audio FX
   //////////////////////////////
-  let sounds = ["Bell", "Box", "Cash", "Coin", "Error", "None"];
+  let sounds = ["Bell", "Coin", "Error", "None"];
   let soundsValue = localStorage.getItem("audio");
 
   const processSound = () => {

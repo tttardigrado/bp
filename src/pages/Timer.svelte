@@ -4,41 +4,16 @@
   import Play from "../icons/Play.svelte";
   import Pause from "../icons/Pause.svelte";
   import Btn from "../components/Btn.svelte";
-  import TxtBtn from "../components/TxtBtn.svelte";
+  import PoiBtn from "../components/PoiBtn.svelte";
 
   import { getAudio } from "../data/audio";
   import { noSleep } from "../data/wake";
+import { loop_guard } from "svelte/internal";
+import { audio } from "../data/store";
+
 
   let wakeLock = noSleep();
 
-  ////////////////////
-  // POI
-  ////////////////////
-
-  let isDuringPoi = false
-  let poiText = "POI"
-
-  function endPoi() {
-    poiText = "POI"
-	  isDuringPoi = false 
-    window.navigator.vibrate(500);      
-  }
-
-  function poi() {
-    // If it's not already running
-		if (!isDuringPoi) {
-			// Start running
-      isDuringPoi = true
-
-      // Decrement every second
-      for (let i = 0; i < 15; i++) {
-      	setTimeout(_ => {poiText = `${15-i}`}, i * 1000);
-    	}
-
-      // Stop the poi timer
-      setTimeout(_ => endPoi(), 15000)
-    }
-}
   ////////////////////
   // Time
   ////////////////////
@@ -56,6 +31,19 @@
 
   let audioPlayer = getAudio();
 
+  function play(n = 1) {
+    // Play Audio 
+    audioPlayer.play()
+
+    // Play  n times
+    // prev + n-1 times with a 0.5s interval
+    for (let i = 1; i < n; i++){
+      setTimeout(() => {
+        audioPlayer.currentTime = 0
+      }, i * 500)
+    }
+  }
+
   // Start/Stop the timer
   function switchOnOff() {
     playing = !playing;
@@ -67,7 +55,7 @@
       // 0 - 1 min
       // play audio at minute 1
       if (seconds === min1InSecs) {
-        audioPlayer.play();
+        play(1);
       }
 
       barColor = "var(--color-1-min)";
@@ -75,7 +63,7 @@
       // 1 - 6 min
       // play audio at minute 6
       if (seconds === min6InSecs) {
-        audioPlayer.play();
+        play(1)
       }
 
       barColor = "var(--color-6-min)";
@@ -83,14 +71,14 @@
       // 6 - 7 min
       // play audio at minute 7
       if (seconds === min7InSecs) {
-        audioPlayer.play();
+        play(2);
       }
 
       barColor = "var(--color-7-min)";
     } else if (seconds === min715InSecs) {
       // end of speech
       // play audio -> change color -> start flicker
-      audioPlayer.play();
+      play(3);
       barColor = "var(--color-7-15-min)";
       extraClass = "flicker";
     }
@@ -155,9 +143,9 @@
 
 
   <!-- Reset the timer Btn-->
-  <Btn icon={mdiBell} func={() => audioPlayer.play()} isLeft={true} />
+  <Btn icon={mdiBell} func={() => play(1)} isLeft={true} />
   
-  <TxtBtn func={poi}  txt={poiText}/>
+  <PoiBtn/>
 
   <!-- Reset the timer Btn-->
   <Btn icon={mdiRestart} func={reset} />

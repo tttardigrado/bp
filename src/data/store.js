@@ -74,7 +74,7 @@ audio.subscribe(value => {
     localStorage.setItem("audio", value ? value : "bell");
 });
 
-// ---------- Audio ---------- 
+// ---------- Wake ---------- 
 const WAKE_ON = "Manter Ligado"
 const WAKE_OFF = "Desligar"
 
