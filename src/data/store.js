@@ -63,6 +63,10 @@ theme.subscribe(value => {
 	set_root();
 });
 
+
+
+
+
 // ---------- Audio ---------- 
 const storedAudio = localStorage.getItem("audio");
 
@@ -73,6 +77,10 @@ audio.subscribe(value => {
 	// Default is "/audio/bell.mp3" (path to the bell sound)
     localStorage.setItem("audio", value ? value : "bell");
 });
+
+
+
+
 
 // ---------- Wake ---------- 
 const WAKE_ON = "Manter Ligado"
@@ -89,6 +97,10 @@ wake.subscribe(value => {
     localStorage.setItem("wake", value ? value : WAKE_ON);
 });
 
+
+
+
+
 // ---------- Template ---------- 
 const storedTemplate = localStorage.getItem("template");
 
@@ -98,6 +110,10 @@ template.subscribe(value => {
 	// Set the Notes Template
     localStorage.setItem("template", value ? value : "");
 });
+
+
+
+
 
 // ---------- Debates ---------- 
 const storedDebates = localStorage.getItem("debates");

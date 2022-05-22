@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // Exported values
 
   // Select Title
@@ -7,16 +7,18 @@
   export let id = "";
 
   // Select Options
-  export let options = [];
+  export let options: number[] | string[] = [];
 
   // Current Select Value
-  export let value = "";
+  export let value: number | string = "";
 
   // Function to be executed OnChange
   export let fun = () => {};
 </script>
 
-<label for={id}>{title}</label>
+{#if title}
+  <label for={id}>{title}</label>
+{/if}
 <select bind:value name={id} {id} on:change={fun}>
   {#each options as o}
     <option value={o}>{o}</option>

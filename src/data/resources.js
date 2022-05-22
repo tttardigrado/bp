@@ -31,7 +31,11 @@ const books = {
         },
         {
             link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
-            text:"SDUL - Formações 101"
+            text:"SDUL - 101"
+        },
+        {
+            link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
+            text:"SDUL - 101"
         }
     ]
 }
@@ -136,7 +140,29 @@ const debatesEN = {
         {
             link:"https://www.youtube.com/watch?v=3WX-4i9FqvE",
             text:"THBT governments should abandon the strategy of 'decapitation' in fighting terrorism."
+        },
+        {
+            link:"https://www.youtube.com/watch?v=gyg5B2hMb5E",
+            text:"THW choose the job they are passionate about."
         }
+    ]
+}
+
+const websites = {
+    name: "Websites e Artigos",
+    content: [
+        {
+            link:"https://ehpriori.com/home/becoming-super-saiyan",
+            text:"Becoming Super Saiyan"
+        },
+        {
+            link:"https://ehpriori.com/",
+            text:"Eh Priori"
+        },
+        {
+            link:"http://hellomotions.com/",
+            text:"Hello motions!"
+        },
     ]
 }
 
@@ -146,4 +172,5 @@ export const resources = [
     trainingEN,
     debatesPT,
     debatesEN,
+    websites,
 ]

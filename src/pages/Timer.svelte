@@ -7,12 +7,6 @@
   import PoiBtn from "../components/PoiBtn.svelte";
 
   import { getAudio } from "../data/audio";
-  import { noSleep } from "../data/wake";
-import { loop_guard } from "svelte/internal";
-import { audio } from "../data/store";
-
-
-  let wakeLock = noSleep();
 
   ////////////////////
   // Time
@@ -40,7 +34,7 @@ import { audio } from "../data/store";
     for (let i = 1; i < n; i++){
       setTimeout(() => {
         audioPlayer.currentTime = 0
-      }, i * 500)
+      }, i * 700)
     }
   }
 

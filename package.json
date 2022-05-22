@@ -30,7 +30,6 @@
     "@mdi/js": "^6.5.95",
     "@supabase/supabase-js": "^1.29.1",
     "netlify": "^11.0.1",
-    "netlify-cli": "^8.6.18",
     "sirv-cli": "^1.0.0"
   }
 }

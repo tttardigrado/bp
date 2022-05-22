@@ -20,20 +20,7 @@
   //////////////////////////////
   // Color Schemes
   //////////////////////////////
-  let schemes = [
-    "Nord",
-    "TokyoNight",
-    "Umbra",
-    "OneDark",
-    "Pastel",
-    "Spotify",
-    "Discord",
-    "Moxfield",
-    "Twitter",
-    "Whatsapp",
-    "GitHub",
-    "YouTube",
-  ];
+  let schemes = ["Nord", "TokyoNight", "Umbra", "OneDark", "Pastel", "Spotify", "Discord", "Moxfield", "Twitter", "Whatsapp", "GitHub", "YouTube"];
   let schemesValue = localStorage.getItem("theme");
 
   const processSchemes = () => theme.set(schemesValue);
@@ -50,7 +37,7 @@
   };
 
   //////////////////////////////
-  // Audio FX
+  // Wake
   //////////////////////////////
   let wakeValue = localStorage.getItem("wake");
 
@@ -100,6 +87,7 @@
     <Input modifier="textarea" bind:value={templateValue} placeholder="" />
     <Button primary on:click={processTemplate} icon={mdiCheck} />
   </Field>
+
 
   <hr />
   <br />

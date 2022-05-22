@@ -11,6 +11,8 @@
   import Calc from "./pages/Calc.svelte";
   //import Error from "./pages/Error.svelte";
 
+  import { noSleep } from "./data/wake";
+  let wakeLock = noSleep();
 
   let page = "Temporizador"
 

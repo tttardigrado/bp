@@ -1,57 +1,51 @@
 const cacheName = "breaker"
-const staticAssets = [
-  "./index.html",
-  "./favicon.png",
-  "./global.css",
-  "./manifest.webmanifest",
-  "./build/bundle.js",
-  "./build/bundle.css",
-  "./build/bundle.js.map",
-  "./icons",
-  "./audio/bell.mp3",
-  "./audio/box.mp3",
-  "./audio/cash.mp3",
-  "./audio/coin.mp3",
-  "./audio/error.mp3",
-  "./audio/none.mp3"
+const assets = [
+  "/",
+  "/index.html",
+  "/favicon.png",
+  "/global.css",
+  "/build/bundle.js",
+  "/build/bundle.css",
+  "/build/bundle.js.map",
+  "/audio/bell.mp3",
+  "/audio/coin.mp3",
+  "/audio/error.mp3",
+  "/audio/none.mp3",
+  "/manifest.webmanifest"
 ];
 
+// install event
+self.addEventListener('install', evt => {
+  //console.log('service worker installed');
+  evt.waitUntil(
+    caches.open(cacheName).then((cache) => {
+      console.log('caching shell assets');
+      cache.addAll(assets);
+    })
+  );
+});
 
-self.addEventListener('install', async e => {
-  const cache = await caches.open(cacheName);
-  await cache.addAll(staticAssets);
-  return self.skipWaiting();
-})
-
-self.addEventListener('activate', e => {
-  self.clients.claim();
-})
-
-self.addEventListener('fetch', async e => {
-  const req = e.request;
-  const url = new URL(req.url);
-  if (url.origin === location.origin) {
-    e.respondWith(cacheFirst(req));
-  } else {
-    e.respondWith(networkAndCache(req));
-  }
+// activate event
+self.addEventListener('activate', evt => {
+  //console.log('service worker activated');
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      //console.log(keys);
+      return Promise.all(keys
+        .filter(key => key !== cacheName)
+        .map(key => caches.delete(key))
+      );
+    })
+  );
 });
 
 
-async function cacheFirst(req) {
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(req);
-  return cached || fetch(req);
-}
-
-async function networkAndCache(req) {
-  const cache = await caches.open(cacheName);
-  try {
-    const fresh = await fetch(req);
-    await cache.put(req, fresh.clone());
-    return fresh;
-  } catch (e) {
-    const cached = await cache.match(req);
-    return cached;
-  }
-}
+self.addEventListener('fetch', function(event) {
+  console.log(event.request.url);
+ 
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
+ });

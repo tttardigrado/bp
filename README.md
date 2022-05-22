@@ -2,7 +2,7 @@
 
 The most important thing I learned when I got into university is that **Debates are Fun**.
 
-**The Breaker** is my way of trying to help the portuguese debate community by creating tools to helpe them during, before and after debates.
+**The Breaker** is my way of trying to help the portuguese debate community by creating tools to help them during, before and after debates.
 
 ## Tech Stack
 
