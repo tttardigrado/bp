@@ -31,7 +31,7 @@ The most important thing I learned when I got into university is that **Debates 
 - [x] Non-Motion Sugestion form
 - [ ] More resources
 - [ ] Up/download data
-- [ ] Export stats as PNG
+- [ ] Improve Draw
 - [x] Show if the debate has infoslide on the card
 - [x] Break Calculator
 - [x] WakeLock

@@ -14,7 +14,7 @@
   import { noSleep } from "./data/wake";
   let wakeLock = noSleep();
 
-  let page = "Temporizador"
+  let page = "Debates"
 
   
 </script>

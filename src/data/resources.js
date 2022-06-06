@@ -33,10 +33,6 @@ const books = {
             link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
             text:"SDUL - 101"
         },
-        {
-            link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
-            text:"SDUL - 101"
-        }
     ]
 }
 

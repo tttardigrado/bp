@@ -100,7 +100,7 @@
   <br /><br />
 
   <Button outline primary style="width:100%" on:click={() => open(bugFLink)}>
-    Reportar Bug
+    Reportar Bug ou Sugestões
   </Button>
 
   <br /><br />
