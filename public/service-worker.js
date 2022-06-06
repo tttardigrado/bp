@@ -40,7 +40,7 @@ self.addEventListener('activate', evt => {
 });
 
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   console.log(event.request.url);
  
   event.respondWith(
