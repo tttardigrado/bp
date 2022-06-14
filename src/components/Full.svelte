@@ -5,8 +5,8 @@
     export let value = ""
     
     let fontSize = 16
-    const upFont   = () => fontSize += 1
-    const downFont = () => fontSize -= 1
+    const upFont   = () => fontSize += 5
+    const downFont = () => fontSize -= 5
 </script>
 
 <textarea bind:value style="font-size: {fontSize}px" />

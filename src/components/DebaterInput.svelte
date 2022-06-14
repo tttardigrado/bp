@@ -1,12 +1,9 @@
 <script>
     import "chota";
-    export let teams = 0
+    export let cat = 0
     export let debaterNum = 1
     export let name = "Debater"
     import { Input, Button, Field} from "svelte-chota";
-
-    const team = Math.floor((debaterNum -1) / 2)
-
 </script>
 
 <Field gapless>
@@ -17,8 +14,16 @@
         bind:value={name}
     />
     <Button
+        style="width: 11rem"
         primary
-        on:click={() => teams[team] = !teams[team]} 
-    >{teams[team] ? team + 1 : 0}</Button>
+        on:click={() => cat = (cat + 1) % 3}>
+    {#if cat == 1}
+        AM
+    {:else if cat == 2}
+        PRO
+    {:else}
+        MID
+    {/if}
+    </Button>
     
 </Field>

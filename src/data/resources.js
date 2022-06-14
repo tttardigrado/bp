@@ -74,6 +74,10 @@ const trainingEN = {
             text:"How to nail arguments about narratives, messages and symbols"
         },
         {
+            link:"https://www.youtube.com/watch?v=IhbBUr6D6EY",
+            text:"Case strategy and construction"
+        },
+        {
             link:"https://www.youtube.com/channel/UC1Cdkqn2WrTxLaLfmo_YxUA",
             text:"European debate training platform"
         },

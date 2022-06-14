@@ -1,4 +1,4 @@
-const cacheName = "breaker"
+const cacheName = "breaker-v0.91"
 const assets = [
   "/",
   "/index.html",
@@ -16,6 +16,10 @@ const assets = [
 
 // install event
 self.addEventListener('install', evt => {
+  caches.keys().then(names => {
+    for (let name of names) {
+        caches.delete(name);
+  }});
   //console.log('service worker installed');
   evt.waitUntil(
     caches.open(cacheName).then((cache) => {
@@ -45,7 +49,7 @@ self.addEventListener('fetch', event => {
  
   event.respondWith(
     caches.match(event.request).then(response => {
-      return fetch(event.request) || response;
+      return response || fetch(event.request);
     })
   );
  });

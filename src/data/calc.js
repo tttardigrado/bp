@@ -1,6 +1,4 @@
-function sortNumbers(a, b) {
-  return a - b;
-}
+const sortNumbers = (a, b) => a - b;
 
 export function bpBreak(teams, rounds, breaks) {
   let worstCase = [];

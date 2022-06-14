@@ -8,46 +8,23 @@
   // ROOMS
   ////////////////////////////////////////
   let rooms = 8;
-  function plusRooms() {
-    rooms += 1;
-  }
-  function minusRooms() {
-    rooms -= 1;
-
-    if (rooms < 0) {
-      rooms = 0;
-    }
-  }
+  const plusRooms  = () => rooms++;
+  const minusRooms = () => rooms = Math.max(rooms-1, 0);
 
   ////////////////////////////////////////
   // ROUNDS
   ////////////////////////////////////////
   let rounds = 5;
-  function plusRound() {
-    rounds++;
-  }
-  function minusRound() {
-    rounds--;
-
-    if (rounds < 0) {
-      rounds = 0;
-    }
-  }
+  const plusRound  = () => rounds++;
+  const minusRound = () => rounds = Math.max(rounds-1, 0);
 
   ////////////////////////////////////////
   // BREAKS
   ////////////////////////////////////////
   let breaks = 8;
-  function plusBreak() {
-    breaks += 1;
-  }
-  function minusBreak() {
-    breaks -= 1;
+  const plusBreak  = () => breaks++;
+  const minusBreak = () => breaks = Math.max(breaks-1, 0);
 
-    if (breaks < 0) {
-      breaks = 0;
-    }
-  }
 
   ////////////////////////////////////////
   // RESULTS
