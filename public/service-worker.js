@@ -1,4 +1,4 @@
-const cacheName = "breaker-v0.91"
+const cacheName = "breaker-v0.92"
 const assets = [
   "/",
   "/index.html",
@@ -10,6 +10,7 @@ const assets = [
   "/audio/bell.mp3",
   "/audio/coin.mp3",
   "/audio/error.mp3",
+  "/audio/ayo.mp3",
   "/audio/none.mp3",
   "/manifest.webmanifest"
 ];
