@@ -22,16 +22,8 @@ const books = {
             text:"Training Guide for University Debating"
         },
         {
-            link:"https://drive.google.com/file/d/1HQLuMe0Mo1_PiEr3ZONaEyPQ8bOadrr1/view?usp=sharing",
-            text:"How to be a good and useful wing"
-        },
-        {
-            link:"https://drive.google.com/file/d/1GpILvodIuywXAUy6n4bwl9D5_YSYnBfe/view?usp=sharing",
-            text:"Como Ganhar em BP?"
-        },
-        {
-            link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
-            text:"SDUL - 101"
+        	link:"https://drive.google.com/file/d/1kDlJ1v4h-qPtIU1u_oka-jH5za0Wcuyq/view?usp=sharing",
+        	text:"The Practical Guide to Debating"
         },
     ]
 }
@@ -39,9 +31,9 @@ const books = {
 const trainingPT = {
     name: "Formações - PT",
     content: [
-        { 
-            link:"https://www.youtube.com/watch?v=qn6B0_5PyRM", 
-            text:"Impactos" 
+        {
+            link:"https://www.youtube.com/watch?v=qn6B0_5PyRM",
+            text:"Impactos"
         },
         {
             link:"https://www.youtube.com/watch?v=POZGeXsdQiE",
@@ -90,6 +82,36 @@ const trainingEN = {
             text:"Manchester debating union"
         },
     ]
+}
+
+const written = {
+	name: "Formações - Escritas",
+	content: [
+		{
+		    link: "https://docs.google.com/document/d/1ZnLYmmvd_wom_u0EZk7JPXBBVtLsgACmA10oy7v68C8/",
+		    text: "Motion Setting and Evaluating"
+		},
+        {
+            link:"https://drive.google.com/file/d/1HQLuMe0Mo1_PiEr3ZONaEyPQ8bOadrr1/view?usp=sharing",
+            text:"How to be a good and useful wing"
+        },
+        {
+            link:"https://drive.google.com/file/d/1GpILvodIuywXAUy6n4bwl9D5_YSYnBfe/view?usp=sharing",
+            text:"Como Ganhar em BP?"
+        },
+        {
+            link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
+            text:"SDUL - 101"
+        },
+        {
+        	link:"https://drive.google.com/file/d/1xyhkJa78me748M9SbsTIjWU3GB7_vuKk/view?usp=sharing",
+        	text:"Formações CNADU"
+        },
+        {
+        	link:"https://drive.google.com/file/d/1RtOe92PmEldvuac22ojdeJcnNDOXx__N/view?usp=sharing",
+        	text:"How to debate International Relations"
+        },
+	]
 }
 
 const debatesPT = {
@@ -170,6 +192,7 @@ export const resources = [
     books,
     trainingPT,
     trainingEN,
+    written,
     debatesPT,
     debatesEN,
     websites,

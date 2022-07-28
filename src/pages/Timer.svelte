@@ -9,6 +9,13 @@
   import { getAudio } from "../data/audio";
 
   ////////////////////
+  // No Sleep
+  ////////////////////
+
+  import { noSleep } from "../data/wake";
+  let wakeLock = noSleep();
+
+  ////////////////////
   // Time
   ////////////////////
 
@@ -26,7 +33,7 @@
   let audioPlayer = getAudio();
 
   function play(n = 1) {
-    // Play Audio 
+    // Play Audio
     audioPlayer.play()
 
     // Play  n times
@@ -40,7 +47,10 @@
 
   // Start/Stop the timer
   function switchOnOff() {
-    playing = !playing;
+    if (!playing) {
+		wakeLock = noSleep();
+    }
+    playing = !playing
   }
 
   // Update the timer - speech version
@@ -138,7 +148,7 @@
 
   <!-- Reset the timer Btn-->
   <Btn icon={mdiBell} func={() => play(1)} isLeft={true} />
-  
+
   <PoiBtn/>
 
   <!-- Reset the timer Btn-->

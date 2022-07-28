@@ -1,4 +1,4 @@
-const cacheName = "breaker-v0.92"
+const cacheName = "breaker-v0.94"
 const assets = [
   "/",
   "/index.html",
@@ -47,7 +47,7 @@ self.addEventListener('activate', evt => {
 
 self.addEventListener('fetch', event => {
   console.log(event.request.url);
- 
+
   event.respondWith(
     caches.match(event.request).then(response => {
       return response || fetch(event.request);
