@@ -70,7 +70,7 @@
 
     // Shuffle a give array
     const shuffle = (array) => {
-        array.sort(() => Math.random() - 0.5)
+        array.sort(() => Math.random())
     }
   
 
@@ -79,9 +79,9 @@
       let [indef, am, pro] = separate()
   
       // Shuffle each category
-      indef = shuffle(indef)
-      am    = shuffle(am)
-      pro   = shuffle(pro)
+      shuffle(indef)
+      shuffle(am)
+      shuffle(pro)
 
       // Try to match PRO-AM
       let matchedPro = match(pro, am, indef)
