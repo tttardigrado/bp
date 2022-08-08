@@ -70,7 +70,7 @@
 
     // Shuffle a give array
     const shuffle = (array) => {
-        array.sort(() => Math.random())
+        array.sort(() => Math.random() - 0.5)
     }
   
 
