@@ -1,5 +1,5 @@
 <script>
-    import { mdiShuffleVariant } from "@mdi/js";
+    import { mdiShuffleVariant, mdiScaleBalance } from "@mdi/js";
     import {Modal} from "svelte-chota";
     import DrawBox from "../components/DrawBox.svelte";
     import DebaterInput from "../components/DebaterInput.svelte";
@@ -70,15 +70,11 @@
 
     // Shuffle a give array
     const shuffle = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array
+        array.sort(() => Math.random() - 0.5)
     }
   
 
-    const giveDraw = () => {
+    const giveDrawBalance = () => {
       // separate the debater into 3 categories
       let [indef, am, pro] = separate()
   
@@ -95,10 +91,24 @@
       let matchedINDEF = match(indef, [], [])
 
       // Concat the 3 matches into a single teams array
-      let teams = matchedPro.concat(matchedAM, matchedINDEF)
+      state.draw = matchedPro.concat(matchedAM, matchedINDEF)
   
-      state.draw = shuffle(teams)
+      shuffle(state.draw)
   
+      modal_show()
+    }
+
+    const giveDrawPair = () => {
+      // separate the debaters into 4 teams
+      state.draw = [
+        [state.debaters[0], state.debaters[1]],
+        [state.debaters[2], state.debaters[3]],
+        [state.debaters[4], state.debaters[5]],
+        [state.debaters[6], state.debaters[7]],
+      ]
+
+      shuffle(state.draw)
+
       modal_show()
     }
 </script>
@@ -113,7 +123,8 @@
       bind:name={s}/>
   {/each}
   
-  <Btn icon={mdiShuffleVariant} func={giveDraw}></Btn>
+  <Btn icon={mdiShuffleVariant} func={giveDrawPair} />
+  <Btn icon={mdiScaleBalance} func={giveDrawBalance} isLeft={true} />
   
   <Modal bind:open={modal_open} style="padding: 5rem; background: none;">
     <DrawBox state={state}/>
