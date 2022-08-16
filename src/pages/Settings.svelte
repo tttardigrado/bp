@@ -2,7 +2,7 @@
   import { Button, Field } from "svelte-chota";
   import Select from "../components/Select.svelte";
   import Input from "../components/Input.svelte";
-  import { theme, audio, template, wake, wakeModes } from "../data/store";
+  import { theme, audio, template} from "../data/store";
   import { getAudio } from "../data/audio";
   import { mdiCheck } from "@mdi/js";
 
@@ -39,9 +39,9 @@
   //////////////////////////////
   // Wake
   //////////////////////////////
-  let wakeValue = localStorage.getItem("wake");
-
-  const processWake = () => wake.set(wakeValue);
+  // let wakeValue = localStorage.getItem("wake");
+  //
+  // const processWake = () => wake.set(wakeValue);
 
   //////////////////////////////
   // Notes Template
@@ -72,7 +72,7 @@
   />
 
   <!-- CHOICE WAKE LOCK -->
-  {#if "wakeLock" in navigator}
+  <!--{#if "wakeLock" in navigator}
     <Select
       id="wake"
       bind:value={wakeValue}
@@ -80,7 +80,7 @@
       title="Ecrã"
       fun={processWake}
     />
-  {/if}
+  {/if}-->
 
   <!-- NOTES TEMPLATE -->
   <Field label="Notas">

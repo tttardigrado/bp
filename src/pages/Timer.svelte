@@ -13,7 +13,7 @@
   ////////////////////
 
   import { noSleep } from "../data/wake";
-  let wakeLock = noSleep();
+  let wakeLock = null
 
   ////////////////////
   // Time
@@ -47,9 +47,6 @@
 
   // Start/Stop the timer
   function switchOnOff() {
-    if (!playing) {
-		wakeLock = noSleep();
-    }
     playing = !playing
   }
 
@@ -116,6 +113,11 @@
 
     // Increment the timer
     seconds++;
+
+    // keep screen awake
+    if (wakeLock === null){
+      wakeLock = noSleep()
+    }
 
     speechTimer()
   }

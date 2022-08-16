@@ -9,9 +9,7 @@ export function noSleep() {
         }
     }
 
-    if (localStorage.getItem("wake") == "Manter Ligado") {
-        getWake();
-    }
+    getWake()
 
     return wakeLock
 }

@@ -83,6 +83,7 @@ audio.subscribe(value => {
 
 
 // ---------- Wake ---------- 
+/*
 const WAKE_ON = "Manter Ligado"
 const WAKE_OFF = "Desligar"
 
@@ -96,7 +97,7 @@ wake.subscribe(value => {
 	// Set the "wake" item
     localStorage.setItem("wake", value ? value : WAKE_ON);
 });
-
+*/
 
 
 
