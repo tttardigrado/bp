@@ -103,10 +103,10 @@ const written = {
             link:"https://drive.google.com/file/d/1pmyoOX02E3OSbztR3sCf8zhwmJOHOrj-/view?usp=sharing",
             text:"SDUL - 101"
         },
-        {
-        	link:"https://drive.google.com/file/d/1xyhkJa78me748M9SbsTIjWU3GB7_vuKk/view?usp=sharing",
-        	text:"Formações CNADU"
-        },
+        //{
+        //	link:"https://drive.google.com/file/d/1xyhkJa78me748M9SbsTIjWU3GB7_vuKk/view?usp=sharing",
+        //	text:"Formações CNADU"
+        //},
         {
         	link:"https://drive.google.com/file/d/1RtOe92PmEldvuac22ojdeJcnNDOXx__N/view?usp=sharing",
         	text:"How to debate International Relations"
