@@ -1,4 +1,4 @@
-const cacheName = "breaker-v0.990"
+const cacheName = "breaker-v1.0"
 const assets = [
   "/",
   "/index.html",
